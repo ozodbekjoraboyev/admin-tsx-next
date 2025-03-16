@@ -6,6 +6,7 @@ export const columns: ColumnsType<studentTypes> = [
       title: "Name",
       dataIndex: "name",
       key: "name",
+      
     },
     {
       title: "Age",
@@ -22,4 +23,5 @@ export const columns: ColumnsType<studentTypes> = [
       dataIndex: "job",
       key: "job",
     },
+    
   ];

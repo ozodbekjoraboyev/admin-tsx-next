@@ -1,12 +1,36 @@
 "use client";
-import { columns } from "@/constants";
+import { columns as defaultColumns } from "@/constants";
 import { studentData } from "@/constants/data";
-import { Button, Drawer, Form, Input, Radio, Select, Space, Table } from "antd";
+import { Table, Button } from "antd";
 import React, { useState } from "react";
 import AddStudents from "./addstudents/page";
 
 function Students() {
   const [students, setStudents] = useState(studentData);
+
+
+  const handleDelete = (id: any) => {
+    setStudents(students.filter((student) => student.id !== id));
+  };
+
+  
+  const columns = [
+    ...defaultColumns,
+    {
+      title: "Action",
+      key: "action",
+      render: (record: any) => (
+        <Button
+          type="primary"
+          className=" z-50 absolute"
+          danger
+          onClick={() => handleDelete(record.id)}
+        >
+          O‘chirish
+        </Button>
+      ),
+    },
+  ];
 
   return (
     <div className="absolute pl-[220px] pr-10 w-full container m-auto">
@@ -16,12 +40,11 @@ function Students() {
         <AddStudents setStudents={setStudents} />
       </div>
 
-      <div className=" w-full">
-         <Table dataSource={students} columns={columns} rowKey="id" />
+      <div className="w-full">
+        <Table dataSource={students} columns={columns} rowKey="id" />
       </div>
     </div>
   );
 }
 
 export default Students;
-

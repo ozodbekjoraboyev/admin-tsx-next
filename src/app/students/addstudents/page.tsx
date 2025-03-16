@@ -17,21 +17,7 @@ function AddStudents({ setStudents }:any) {
     form.resetFields();
   };
 
-  const onFinish = (values) => {
-    setLoading(true);
 
-    const newStudent = {
-      id: studentData.length + 1, 
-      ...values,
-    };
-
-    setStudents((prev) => [...prev, newStudent]);
-
-    setTimeout(() => {
-      setLoading(false);
-      onClose();
-    }, 1000);
-  };
 
   return (
     <div>
@@ -40,7 +26,7 @@ function AddStudents({ setStudents }:any) {
       </Button>
 
       <Drawer title="🆕 Yangi Talaba Qo‘shish" onClose={onClose} open={open} width={400}>
-        <Form form={form} layout="vertical" onFinish={onFinish} className="space-y-3">
+        <Form form={form} layout="vertical" className="space-y-3">
           <Form.Item name="name" label="👤 Ism" rules={[{ required: true, message: "Ismni kiriting!" }]}>
             <Input placeholder="Ismni kiriting" />
           </Form.Item>

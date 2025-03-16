@@ -4,4 +4,5 @@
     age: number;
     gender: "Male" | "Female";
     job: string;
+    image:string
   };
