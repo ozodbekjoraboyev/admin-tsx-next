@@ -4,16 +4,19 @@ import { studentData } from "@/constants/data";
 import { Table, Button } from "antd";
 import React, { useState } from "react";
 import AddStudents from "./addstudents/page";
+import { useGlobalStor } from "@/store/my-stor-zustand";
 
 function Students() {
-  const [students, setStudents] = useState(studentData);
-
+  // const [students, setStudents] = useState(studentData);
+  const state = useGlobalStor();
 
   const handleDelete = (id: any) => {
-    setStudents(students.filter((student) => student.id !== id));
+    const deletee = state.students.filter((item) => item.id !== id);
+    useGlobalStor.setState({
+      students: deletee,
+    });
   };
 
-  
   const columns = [
     ...defaultColumns,
     {
@@ -37,11 +40,11 @@ function Students() {
       <div className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg">
         <h1 className="text-xl font-semibold">📚 Students</h1>
 
-        <AddStudents setStudents={setStudents} />
+        <AddStudents />
       </div>
 
       <div className="w-full">
-        <Table dataSource={students} columns={columns} rowKey="id" />
+        <Table dataSource={state.students}  columns={columns} rowKey="id" />
       </div>
     </div>
   );
