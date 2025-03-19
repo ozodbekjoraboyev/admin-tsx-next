@@ -27,7 +27,7 @@ function AddStudents() {
       </Button>
 
       <Drawer
-        title="🆕 Yangi Talaba Qo‘shish"
+        title="🆕 Yangi  Qo‘shish"
         onClose={onClose}
         open={open}
         width={400}
@@ -36,12 +36,12 @@ function AddStudents() {
           onFinish={(value) => {
             setLoading(true);
             console.log(value);
-            const new_student = state.students.concat({
+            const new_grups = state.groups.concat({
               id: Math.floor(Math.random() * 10000),
               ...value,
             });
             useGlobalStor.setState({
-              students: new_student,
+              groups: new_grups,
             });
 
             setTimeout(() => {
@@ -55,38 +55,13 @@ function AddStudents() {
         >
           <Form.Item
             name="name"
-            label=" Ism"
+            label=" nomi"
             rules={[{ required: true, message: "Ismni kiriting!" }]}
           >
             <Input placeholder="Ismni kiriting" />
           </Form.Item>
 
-          <Form.Item
-            name="age"
-            label=" Yosh"
-            rules={[{ required: true, message: "Yoshni kiriting!" }]}
-          >
-            <Input type="number" placeholder="Yoshni kiriting" />
-          </Form.Item>
-
-          <Form.Item
-            name="gender"
-            label=" Jins"
-            rules={[{ required: true, message: "Jinsni tanlang!" }]}
-          >
-            <Radio.Group buttonStyle="solid">
-              <Radio.Button value="male">Erkak</Radio.Button>
-              <Radio.Button value="female">Ayol</Radio.Button>
-            </Radio.Group>
-          </Form.Item>
-
-          <Form.Item
-            name="job"
-            label=" Kasb"
-            rules={[{ required: true, message: "Kasbni kiriting!" }]}
-          >
-            <Input placeholder="Kasbni kiriting" />
-          </Form.Item>
+        
 
           <Space className="w-full flex justify-end">
             <Button onClick={onClose}>Bekor qilish</Button>

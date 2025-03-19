@@ -1,7 +1,6 @@
 "use client";
 import { Button, Drawer, Form, Input, Radio, Select, Space } from "antd";
 import React, { useState } from "react";
-import { studentData } from "@/constants/data";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 
 function AddStudents() {
@@ -36,18 +35,18 @@ function AddStudents() {
           onFinish={(value) => {
             setLoading(true);
             console.log(value);
-            const new_student = state.students.concat({
+            const new_produkts = state.produkts.concat({
               id: Math.floor(Math.random() * 10000),
               ...value,
             });
             useGlobalStor.setState({
-              students: new_student,
+              produkts: new_produkts,
             });
 
             setTimeout(() => {
               setLoading(false);
               onClose();
-            }, 500);
+            }, 300);
           }}
           form={form}
           layout="vertical"
@@ -83,14 +82,19 @@ function AddStudents() {
             rules={[{ required: true, message: "Kasbni kiriting!" }]}
           >
             <Input placeholder="Kasbni kiriting" />
-          </Form.Item>{" "}
+          </Form.Item>
           <Form.Item name="gruh1" label="nomi">
             <Select
-              options={state.groups.map((item) => {
+              options={state.produkts.map((item) => {
                 return { value: item.id, label: item.gruh1 };
               })}
             />
           </Form.Item>
+
+          <Form.Item name="image" label=" image" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+
           <Space className="w-full flex justify-end">
             <Button onClick={onClose}>Bekor qilish</Button>
             <Button loading={loading} type="primary" htmlType="submit">

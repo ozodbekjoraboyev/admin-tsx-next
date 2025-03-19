@@ -1,5 +1,5 @@
 "use client";
-import { Button, Drawer, Form, Input, Radio, Select, Space } from "antd";
+import { Button, Drawer, Form, Input, Radio, Space } from "antd";
 import React, { useState } from "react";
 import { studentData } from "@/constants/data";
 import { useGlobalStor } from "@/store/my-stor-zustand";
@@ -27,7 +27,7 @@ function AddStudents() {
       </Button>
 
       <Drawer
-        title="🆕 Yangi Talaba Qo‘shish"
+        title="🆕 Yangi catigories Qo'shish"
         onClose={onClose}
         open={open}
         width={400}
@@ -36,12 +36,12 @@ function AddStudents() {
           onFinish={(value) => {
             setLoading(true);
             console.log(value);
-            const new_student = state.students.concat({
+            const new_grups = state.groups.concat({
               id: Math.floor(Math.random() * 10000),
               ...value,
             });
             useGlobalStor.setState({
-              students: new_student,
+              groups: new_grups,
             });
 
             setTimeout(() => {
@@ -55,42 +55,14 @@ function AddStudents() {
         >
           <Form.Item
             name="name"
-            label=" Ism"
+            label=" nomi"
             rules={[{ required: true, message: "Ismni kiriting!" }]}
           >
             <Input placeholder="Ismni kiriting" />
           </Form.Item>
-          <Form.Item
-            name="age"
-            label=" Yosh"
-            rules={[{ required: true, message: "Yoshni kiriting!" }]}
-          >
-            <Input type="number" placeholder="Yoshni kiriting" />
-          </Form.Item>
-          <Form.Item
-            name="gender"
-            label=" Jins"
-            rules={[{ required: true, message: "Jinsni tanlang!" }]}
-          >
-            <Radio.Group buttonStyle="solid">
-              <Radio.Button value="male">Erkak</Radio.Button>
-              <Radio.Button value="female">Ayol</Radio.Button>
-            </Radio.Group>
-          </Form.Item>
-          <Form.Item
-            name="job"
-            label=" Kasb"
-            rules={[{ required: true, message: "Kasbni kiriting!" }]}
-          >
-            <Input placeholder="Kasbni kiriting" />
-          </Form.Item>{" "}
-          <Form.Item name="gruh1" label="nomi">
-            <Select
-              options={state.groups.map((item) => {
-                return { value: item.id, label: item.gruh1 };
-              })}
-            />
-          </Form.Item>
+
+        
+
           <Space className="w-full flex justify-end">
             <Button onClick={onClose}>Bekor qilish</Button>
             <Button loading={loading} type="primary" htmlType="submit">
