@@ -1,9 +1,19 @@
 "use client";
-import { Button, Drawer, Form, Input, Radio, Select, Space } from "antd";
+import {
+  Button,
+  Drawer,
+  Form,
+  Input,
+  InputNumber,
+  message,
+  Radio,
+  Select,
+  Space,
+} from "antd";
 import React, { useState } from "react";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 
-function AddStudents() {
+function AddProdukt() {
   const state = useGlobalStor();
 
   const [open, setOpen] = useState(false);
@@ -26,7 +36,7 @@ function AddStudents() {
       </Button>
 
       <Drawer
-        title="🆕 Yangi Talaba Qo‘shish"
+        title="Mahsulot Qo‘shish"
         onClose={onClose}
         open={open}
         width={400}
@@ -54,45 +64,29 @@ function AddStudents() {
         >
           <Form.Item
             name="name"
-            label=" Ism"
-            rules={[{ required: true, message: "Ismni kiriting!" }]}
+            label=" mahsulot nomi"
+            rules={[
+              { required: true, message: "mahsulot nomini kiriting kiriting!" },
+            ]}
           >
             <Input placeholder="Ismni kiriting" />
           </Form.Item>
           <Form.Item
-            name="age"
-            label=" Yosh"
-            rules={[{ required: true, message: "Yoshni kiriting!" }]}
+            label=" Narxi"
+            name="price"
+            rules={[
+              { required: true },
+            ]}
           >
-            <Input type="number" placeholder="Yoshni kiriting" />
-          </Form.Item>
-          <Form.Item
-            name="gender"
-            label=" Jins"
-            rules={[{ required: true, message: "Jinsni tanlang!" }]}
-          >
-            <Radio.Group buttonStyle="solid">
-              <Radio.Button value="male">Erkak</Radio.Button>
-              <Radio.Button value="female">Ayol</Radio.Button>
-            </Radio.Group>
-          </Form.Item>
-          <Form.Item
-            name="job"
-            label=" Kasb"
-            rules={[{ required: true, message: "Kasbni kiriting!" }]}
-          >
-            <Input placeholder="Kasbni kiriting" />
-          </Form.Item>
-          <Form.Item name="gruh1" label="nomi">
-            <Select
-              options={state.produkts.map((item) => {
-                return { value: item.id, label: item.gruh1 };
-              })}
-            />
+            <InputNumber placeholder="Narx kiriting" />
           </Form.Item>
 
-          <Form.Item name="image" label=" image" rules={[{ required: true }]}>
-            <Input />
+          <Form.Item name="catigoriGrups" label="catigories nomi ">
+            <Select
+              options={state.categories.map((item) => {
+                return { value: item.id, label: item.name };
+              })}
+            />
           </Form.Item>
 
           <Space className="w-full flex justify-end">
@@ -107,4 +101,4 @@ function AddStudents() {
   );
 }
 
-export default AddStudents;
+export default AddProdukt;

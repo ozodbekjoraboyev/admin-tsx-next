@@ -1,10 +1,8 @@
 "use client";
+import AddProdukt from "@/components/AddProdukt";
 import { columns as defaultColumns, produkts } from "@/constants";
-import { studentData } from "@/constants/data";
-import { Table, Button } from "antd";
-import React, { useState } from "react";
-import AddStudents from "./addstudents/page";
 import { useGlobalStor } from "@/store/my-stor-zustand";
+import { Button, Table } from "antd";
 
 function Students() {
   const state = useGlobalStor();
@@ -39,11 +37,11 @@ function Students() {
       <div className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg">
         <h1 className="text-xl font-semibold">🛒 Produkts</h1>
 
-        <AddStudents />
+        <AddProdukt />
       </div>
 
       <div className="w-full">
-        <Table dataSource={state.produkts}  columns={produkts} rowKey="id" />
+        <Table dataSource={state.produkts} columns={produkts} rowKey="id" />
       </div>
     </div>
   );

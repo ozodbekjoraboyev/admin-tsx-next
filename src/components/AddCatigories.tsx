@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { studentData } from "@/constants/data";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 
-function AddStudents() {
+function AddCatigories() {
   const state = useGlobalStor();
 
   const [open, setOpen] = useState(false);
@@ -36,18 +36,18 @@ function AddStudents() {
           onFinish={(value) => {
             setLoading(true);
             console.log(value);
-            const new_grups = state.groups.concat({
+            const new_catigories = state.categories.concat({
               id: Math.floor(Math.random() * 10000),
               ...value,
             });
             useGlobalStor.setState({
-              groups: new_grups,
+              categories: new_catigories,
             });
 
             setTimeout(() => {
               setLoading(false);
               onClose();
-            }, 500);
+            }, 200);
           }}
           form={form}
           layout="vertical"
@@ -75,4 +75,4 @@ function AddStudents() {
   );
 }
 
-export default AddStudents;
+export default AddCatigories;

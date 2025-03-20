@@ -1,4 +1,10 @@
-import { CatigoiiesType, groupsTypes, ProduktsType, studentTypes } from "@/types";
+import {
+  CatigoiiesType,
+  groupsTypes,
+  OrdersType,
+  ProduktsType,
+  studentTypes,
+} from "@/types";
 
 export const studentData: studentTypes[] = [
   {
@@ -10,24 +16,32 @@ export const studentData: studentTypes[] = [
     gruh1: "N12",
   },
 ];
-export const groupsData: groupsTypes[] = [
-  { id: 1, gruh1: "N12" },
-];
+export const groupsData: groupsTypes[] = [{ id: 1, gruh1: "N12" }];
 
 export const produktsData: ProduktsType[] = [
   {
     id: 1,
     name: "John",
-    age: 25,
-    gender: "Male",
-    job: "Developer",
     gruh1: "N12",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS0pmdpUPQx0-Wha5ECPm4BCwFo2ROXc-LXw&s"
+    price: 1,
   },
 ];
 
-export const CatigoiesData : CatigoiiesType={
-  id: 1221,
-  catigorName:"N12",
+export const CatigoiesData: CatigoiiesType[] = [
+  {
+    id: Math.floor(Math.random() * 10000),
+    name: "N12",
+  },
+];
 
-}
+export const ordersData: OrdersType[] = [
+  {
+    id: 1,
+    students_id: 2,
+    mahsulot_id: 2,
+    adres: "string",
+    count: 2,
+    totle_prisre: 2,
+    status: "aaa"
+  },
+];

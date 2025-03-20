@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { studentData } from "@/constants/data";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 
-function AddStudents() {
+function AddGrupps() {
   const state = useGlobalStor();
 
   const [open, setOpen] = useState(false);
@@ -75,4 +75,4 @@ function AddStudents() {
   );
 }
 
-export default AddStudents;
+export default AddGrupps;

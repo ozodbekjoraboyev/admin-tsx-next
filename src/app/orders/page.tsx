@@ -1,6 +1,7 @@
 "use client";
-import AddStudents from "@/components/AddStudents";
-import { columns as defaultColumns } from "@/constants";
+import AddOrders from "@/components/AddOrders";
+import AddProdukt from "@/components/AddProdukt";
+import { columns as defaultColumns, orders } from "@/constants";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 import { Button, Table } from "antd";
 
@@ -35,13 +36,13 @@ function Students() {
   return (
     <div className="absolute pl-[220px] pr-10 w-full container m-auto">
       <div className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg">
-        <h1 className="text-xl font-semibold">📚 Students</h1>
+        <h1 className="text-xl font-semibold">🛒 orders</h1>
 
-        <AddStudents />
+        <AddOrders />
       </div>
 
       <div className="w-full">
-        <Table dataSource={state.students} columns={columns} rowKey="id" />
+        <Table dataSource={state.orders} columns={orders} rowKey="id" />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import {
   CatigoiiesType,
   groupsTypes,
+  OrdersType,
   ProduktsType,
   studentTypes,
 } from "@/types";
@@ -8,29 +9,15 @@ import { ColumnsType } from "antd/es/table";
 
 export const columns: ColumnsType<studentTypes> = [
   {
-    title: "Name",
+    title: "mahsulot nomi",
     dataIndex: "name",
     key: "name",
   },
+
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Gender",
-    dataIndex: "gender",
-    key: "gender",
-  },
-  {
-    title: "Job",
-    dataIndex: "job",
-    key: "job",
-  },
-  {
-    title: "gruh nomi",
+    title: "grups",
     dataIndex: "gruh1",
-    key: "gruh1",
+    key: "id",
   },
 ];
 export const grups: ColumnsType<groupsTypes> = [
@@ -48,52 +35,65 @@ export const grups: ColumnsType<groupsTypes> = [
 
 export const produkts: ColumnsType<ProduktsType> = [
   {
+    title: "Id",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
     title: "Name",
     dataIndex: "name",
     key: "name",
   },
+
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Gender",
-    dataIndex: "gender",
-    key: "gender",
-  },
-  {
-    title: "Job",
-    dataIndex: "job",
-    key: "job",
-  },
-  {
-    title: "gruh nomi",
-    dataIndex: "gruh1",
-    key: "gruh1",
-  },
-  {
-    title: "image",
-    dataIndex: "image",
-    key: "image",
-    render:(image)=>{
-      return (
-          <div>
-              <img width={40} src={image} alt="" />
-          </div>
-      )
-  }
+    title: "soni",
+    dataIndex: "price   ",
+    key: "price",
   },
 ];
 export const catigories: ColumnsType<CatigoiiesType> = [
   {
+    title: "Id",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
     title: "Name",
     dataIndex: "name",
     key: "name",
   },
+];
+
+export const orders: ColumnsType<OrdersType> = [
   {
-    title: "gruh nomi",
-    dataIndex: "gruh1",
-    key: "gruh1",
+    title: "Id",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "Mijoz",
+    dataIndex: "students_id",
+    key: "students_id",
+  },
+  {
+    title: "Mahsulot",
+    dataIndex: "product_id",
+    key: "product_id",
+  },
+
+  {
+    title: "Soni",
+    dataIndex: "count",
+    key: "count",
+  },
+  {
+    title: "Jami",
+    dataIndex: "totle_prisre",
+    key: "count",
+  },
+  {
+    title: "Status",
+    dataIndex: "status",
+    key: "status",
   },
 ];

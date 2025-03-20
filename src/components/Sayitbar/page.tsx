@@ -29,16 +29,13 @@ function Sayitbar() {
           </Button>
         </Link>{" "}
         <Link href={"/catigories"}>
-          <Button className="w-32">
-          
-          Catigors
-          </Button>
+          <Button className="w-32">Catigors</Button>
         </Link>{" "}
         <Link href={"/produkts"}>
-          <Button className="w-32">
-          
-            Produkt
-          </Button>
+          <Button className="w-32">Produkt</Button>
+        </Link>{" "}
+        <Link href={"/orders"}>
+          <Button className="w-32">order</Button>
         </Link>
       </div>
     </div>

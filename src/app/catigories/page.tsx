@@ -1,11 +1,11 @@
 "use client";
-import { columns as defaultColumns, grups } from "@/constants";
-import { studentData } from "@/constants/data";
+import { catigories, columns as defaultColumns, grups } from "@/constants";
 import { Table, Button } from "antd";
 import React, { useState } from "react";
-import AddStudents from "./addstudents/page";
+import AddStudents from "../../components/AddCatigories";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 import { group } from "console";
+import AddCatigories from "../../components/AddCatigories";
 
 function Grups() {
   const state = useGlobalStor();
@@ -40,11 +40,11 @@ function Grups() {
       <div className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg">
         <h1 className="text-xl font-semibold">📚 Grups</h1>
 
-        <AddStudents />
+        <AddCatigories />
       </div>
 
       <div className="w-full">
-        <Table dataSource={state.groups}  columns={grups} rowKey="id" />
+        <Table dataSource={state.categories}  columns={catigories} rowKey="id" />
       </div>
     </div>
   );
