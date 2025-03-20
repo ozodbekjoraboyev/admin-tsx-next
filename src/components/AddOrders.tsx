@@ -10,9 +10,7 @@ import {
   Space,
 } from "antd";
 import React, { useState } from "react";
-import { studentData } from "@/constants/data";
 import { useGlobalStor } from "@/store/my-stor-zustand";
-import { produkts } from "@/constants";
 
 function AddOrders() {
   const state = useGlobalStor();

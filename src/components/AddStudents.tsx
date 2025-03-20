@@ -1,7 +1,6 @@
 "use client";
 import { Button, Drawer, Form, Input, Radio, Select, Space } from "antd";
 import React, { useState } from "react";
-import { studentData } from "@/constants/data";
 import { useGlobalStor } from "@/store/my-stor-zustand";
 
 function AddStudents() {

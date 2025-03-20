@@ -42,6 +42,6 @@ export const ordersData: OrdersType[] = [
     adres: "string",
     count: 2,
     totle_prisre: 2,
-    status: "aaa"
+    status: "yetkazib_berilmoqda"
   },
 ];
