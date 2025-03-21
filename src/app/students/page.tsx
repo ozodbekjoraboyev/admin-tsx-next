@@ -13,7 +13,7 @@ function Students() {
       students: deletee,
     });
   };
-
+ 
   const columns = [
     ...defaultColumns,
     {

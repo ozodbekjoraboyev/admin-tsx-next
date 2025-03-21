@@ -18,6 +18,7 @@ function AddOrders() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
+  const [totalPrise, settotalPrise] = useState(0);
 
   const showDrawer = () => {
     setOpen(true);
@@ -41,18 +42,25 @@ function AddOrders() {
         width={400}
       >
         <Form
-          onFinish={(value) => {
+         onValuesChange={(_, values)=>{
+           const produkt = state.produkts.find((item) => {
+             return item.id === values.product_id;
+           });
+           if (!produkt) return;
+          settotalPrise(values.count * produkt.price)
+         }}
+          onFinish={(values) => {
             const produkt = state.produkts.find((item) => {
-              return item.id === value.product_id;
+              return item.id === values.product_id;
             });
             if (!produkt) return;
 
             setLoading(true);
-            console.log(value);
+            console.log(values);
             const new_orders = state.orders.concat({
               id: Math.floor(Math.random() * 10000),
-              ...value,
-              totale_prise: value.count * produkt.price,
+              ...values,
+              totale_prise: values.count * produkt.price,
             });
             useGlobalStor.setState({
               orders: new_orders,
@@ -93,17 +101,23 @@ function AddOrders() {
             <Select
               options={state.produkts.map((item) => {
                 return {
-                  label: item.name,
+                  label: `${item.name} - ${item.price.toLocaleString(
+                    "ru"
+                  )} so'm`,
                   value: item.id,
                 };
               })}
             />
           </Form.Item>
-          <Form.Item label=" Soni" name="count" rules={[{ required: true }]}>
-            <InputNumber min={1} />
-          </Form.Item>{" "}
-
-
+          <div className=" flex items-center justify-between">
+            <Form.Item label=" Soni" name="count" rules={[{ required: true }]}>
+              <InputNumber min={1} />
+            </Form.Item>{" "}
+            <div className=" font-bold text-2xl ">
+              {totalPrise}
+              {" so'm"}
+            </div>
+          </div>
           <Form.Item label=" Holati" name="status" rules={[{ required: true }]}>
             <Radio.Group
               block

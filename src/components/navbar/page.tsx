@@ -1,13 +1,13 @@
 import { Button } from "antd";
 import Image from "next/image";
-import React from "react";
-
 
 function Navbar() {
+
+
   return (
     <div className=" container m-auto p-2 ">
       <div className=" bg-blue-800 text-white p-2 rounded-md flex justify-between items-center ">
-        <div>
+        <div className=" flex ">
           <Button
             style={{
               width: 100,
@@ -15,8 +15,9 @@ function Navbar() {
           >
             Logo
           </Button>
+          
         </div>
-        <div className=" flex gap-3 items-center">
+        <div className=" flex gap-3 items-cente text-black">
           <Image
             className=" rounded-full"
             width={70}
@@ -32,7 +33,6 @@ function Navbar() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
